@@ -1,0 +1,31 @@
+Tetris README
+
+Overview: 
+- My Tetris has 6 classes: App, PaneOrganizer, Game, Piece, TetriSquare, and Constants.  App trigger the game to begin, and PaneOrganizer 
+organizes the panes and handles the quit button.  
+TetrisSquare models a TetrisSquare.  this class is used in Piece and Game to model pieces and the board, 
+respectively.  
+- Piece handles arranging the TetrisSquares into each piece's unique formation.  It also handles placing a newly generated piece
+at the top of the screen, giving the piece a color, and deciding whether a piece can rotate.  This class also has methods that move the pieces
+left, right, down, and rotate them counter clockwise.  
+- Game handles the logic of the game.  It creates the 2D board array and uses it to check move validity, land pieces, clear lines, and move 
+all pieces down when a row is cleared.  This class uses a timeline to move the piece down the board at a constan rate.  This class also handles 
+key input, which includes moving left, moving right, moving down, dropping a piece, rotating a piece, and pausing the game.  This class also 
+checks if the game is over or not.  
+Extra Credit: There is a restart button in this class that restarts the game at any time, clears all pieces from the board, generates
+a new piece at the top, resets the score, and removes any labels.  
+Extra Credit: I also created a dynamic label that updates a score.  Each time a line is cleared, the score increases by 10.  
+Extra Credit: I imported 3 images (can be seen at the top of the screen.  I also imported a fourth image to be set at the background of the game.  
+
+
+Design Choices: My project utilized one general piece class.  I created 7 methods to make a piece and arrange the 4 squares of the 1D piece 
+array of TetrisSquares in a piece's unique formation.  Having one piece class as opposed to 7 saves many lines of code and extra classes.  
+I created a general method than can take in a 2D array of starting piece coordinates (for any piece) as a parameter, and place the piece at 
+the top of the board.  I also created a method that can set up any new piece by passing in the piece's desired color and whether or not it
+can rotate.  This allows many lines of code to be saved, because in each of the 7 piece making methods, you don't repeat common code that 
+is involved in making a new piece.  This is handled by one generic makeNewPiece method.  The way i checked move validity is that if any of the 4
+spaces that a piece wants to move into is not null in the 2D board array, the boolean for if the piece can move is false.  
+
+Known Bugs: None
+
+Handin: On time
